@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstring>
+
 using std::cout;
 using std::cin;
 using std::endl;
@@ -31,7 +33,7 @@ class FoodcartList
 		FoodcartList();
 		~FoodcartList();
 
-		bool insert();
+		bool insert(const Foodcart & foodcart); 
 		int display();
 
 	private:
