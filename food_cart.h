@@ -10,7 +10,7 @@ struct Foodcart
 	Foodcart();
 	~Foodcart();
 
-	bool insert();
+	bool readUserInput();
 	int display();
 
 	char* name;
@@ -23,7 +23,7 @@ struct Foodcart
 //each node holds a FoodCart and a pointer to the next FoodCart
 struct Node
 {
-	Foodcart foodcart; 
+	Foodcart cart; 
 	Node * next;
 };
 
@@ -33,7 +33,7 @@ class FoodcartList
 		FoodcartList();
 		~FoodcartList();
 
-		bool insert(const Foodcart & foodcart); 
+		bool insert(); 
 		int display();
 
 	private:

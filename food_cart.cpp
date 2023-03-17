@@ -13,39 +13,56 @@ FoodcartList::~FoodcartList(){}
 FoodcartList::FoodcartList(): head(nullptr) {};
 
 
-bool FoodcartList::insert(const Foodcart & foodcart)
+//Read in user input and store in the foodcart object
+bool Foodcart::readUserInput() 
 {
-	if(!head)
-	{
-
-	head = new Node;
-
-	//foodcart.name changes from null to assigning it a dynamically allocated array
-	head -> foodcart.name = new char[strlen(foodcart.name) + 1]; //SIZE before which is int... strlen gives number of indexes filled, no given space -> space as needed, calc size for you
-	strcpy(head -> foodcart.name, foodcart.name);
-	head -> next = NULL;
-	
-	return true;
-	
-	//head -> foodcart.insert();
-
-
-// strcpy(destination, source)
-
-
-//1. gets name from the argument 
-//2. making exact space to copy name from the argument
-//3. copy info into the member strcpy
-
-	}
-
-	Node* temp = new Node;
-	temp -> foodcart.name = new char[strlen(foodcart.name) + 1];
-	strcpy(temp -> foodcart.name, foodcart.name);
-	temp -> next = head;
-	head = temp;
+	char userInput[100];
+	cout << "Enter the name of the food cart: ";
+	cin.get(userInput, 100, '\n').ignore(100, '\n');
+	this -> name = new char[strlen(userInput)+1];
+	strcpy(this -> name, userInput);
 
 	return true;
 }
+
+bool FoodcartList::insert()
+{
+	if(!head)
+	{
+		head = new Node;
+		head->cart.readUserInput();
+		return true;
+	}
+
+	Node* temp = new Node;
+	temp-> cart.readUserInput();
+	temp-> next = head;
+	head = temp;
+	return true;
+}
+
+
+int FoodcartList::display()
+{
+	Node* current = head;
+
+	if(head == nullptr)
+	{
+		cout << "No food carts to display" << endl;
+		return 0;
+	}
+
+	cout << "Food Carts: " << endl;
+	while(current != nullptr)
+	{
+		cout << "Name: " << current -> cart.name << endl;
+		current = current -> next;
+	}
+
+	return 1;
+}
+
+
+
 
 
