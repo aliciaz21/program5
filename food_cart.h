@@ -5,7 +5,6 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-// zhang loves teriyaki chkn
 struct Foodcart
 {
 	Foodcart();
