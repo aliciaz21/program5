@@ -1,15 +1,13 @@
 #include "food_cart.h"
 
-
 //function prototype 
 void printMenu(int &menuChoice);
 
 int main()
 {
-	int menuChoice = 0;
-	bool stop = false;
-	FoodcartList list;
-
+	int menuChoice = 0; //user choice for menu functions
+	bool stop = false; //flag variable to indicate whether the loop conditions are true or false
+	FoodcartList list; //FoodcartList class object
 
 	for(bool stop = false; stop != true;)
 	{
@@ -28,17 +26,13 @@ int main()
 				stop = true; 
 				break;
 		}
-
-
 	}
 	return 0;
 }
 
-
 //function to print the menu interface
 void printMenu(int &menuChoice)
 {
-
 	cout << "\n[My Activities List: Menu Options]" << endl;
 	cout << "1. Add New Food Cart" << endl;
 	cout << "2. Display the list of all food carts" << endl;
@@ -47,5 +41,4 @@ void printMenu(int &menuChoice)
 	cout << "PLease choose from the following menu options: ";
 	(cin >> menuChoice).ignore(100, '\n');
 	cout << endl;
-
 }
